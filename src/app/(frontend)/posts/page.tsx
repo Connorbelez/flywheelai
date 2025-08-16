@@ -7,6 +7,7 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
 import PageClient from './page.client'
+import { CollectionArchiveClientBridge } from '@/components/CollectionArchive/ClientBridge'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
@@ -45,6 +46,7 @@ export default async function Page() {
         />
       </div>
 
+      <CollectionArchiveClientBridge posts={posts.docs} />
       <CollectionArchive posts={posts.docs} />
 
       <div className="container">
