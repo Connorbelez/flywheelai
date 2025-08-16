@@ -1,4 +1,6 @@
+'use client'
 import React from 'react'
+import { useCopilotReadable } from '@copilotkit/react-core'
 
 const defaultLabels = {
   plural: 'Docs',
@@ -43,6 +45,18 @@ export const PageRange: React.FC<{
     (collection ? defaultCollectionLabels[collection] : undefined) ||
     defaultLabels ||
     {}
+
+  useCopilotReadable({
+    description: 'Summary of the currently visible item range in a paginated list.',
+    value: {
+      indexStart,
+      indexEnd,
+      totalDocs: totalDocs ?? 0,
+      currentPage: currentPage ?? 1,
+      limit: limit ?? 0,
+      collection: collection ?? 'posts',
+    },
+  })
 
   return (
     <div className={[className, 'font-semibold'].filter(Boolean).join(' ')}>

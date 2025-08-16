@@ -17,6 +17,7 @@ import { CopilotSidebar } from '@copilotkit/react-ui'
 
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
+import { CopilotCMSActions } from '@/components/CopilotCMSActions'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
@@ -39,6 +40,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             />
 
             <Header />
+            <CopilotCMSActions />
             {children}
             <CopilotSidebar />
             <Footer />
